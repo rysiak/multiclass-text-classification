@@ -38,7 +38,7 @@ def stem_helper(word):
 	return x
 
 def clean_text(data, stop_words):
-	'''preprocessing for text data: normalizing text, removing unicode characters and numbers, removing english stopwords and performing stemming'''
+	'''preprocessing for text data: normalizing text, removing unicode characters and numbers, removing stopwords and performing stemming'''
 	import re
 	preprocessed_data = []
 	for text in data:
