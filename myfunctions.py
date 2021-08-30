@@ -148,6 +148,8 @@ def model_report(y_test, y_pred, labels):
 	return pd.DataFrame(classification_report(y_test, y_pred, target_names=labels, output_dict=True)).T
 
 def plot_acc(models_names, acc_values):
+	import numpy as np
+	import matplotlib.pyplot as plt
 	index = np.arange(len(acc_values))
 	fig, ax = plt.subplots(figsize = (8,5))
 	ax.bar(models_names, acc_values, edgecolor='#51c2bc', color='#9adbd8')
@@ -156,10 +158,3 @@ def plot_acc(models_names, acc_values):
 	plt.xticks(rotation=60)
 	plt.title('accuracy scores of different classifiers')
 	plt.show()
-	
-def predict_news_group(news, model, vectorizer):
-	x_test = vectorizer.transform([news])
-	targets = news_train.target_names
-	i = int(model.predict(x_test))
-	print("Predicted newsgroup:", targets[i])
-	return None
